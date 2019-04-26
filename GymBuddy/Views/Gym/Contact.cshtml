@@ -1,0 +1,28 @@
+﻿@{ 
+    ViewBag.Title = "Contact Us";
+}
+
+
+<div class="col-md-6 offset-md-3">
+    <div class="card card-body bg-light">
+        <form method="post">
+            <label>Your Name:</label>
+            <br />
+            <input name="name" class="form-control"/>
+            <br />
+            <label>Email:</label>
+            <br />
+            <input type="email" name="email" class="form-control"/>
+            <br />
+            <label>Subject:</label>
+            <br />
+            <input type="text" name="subject" class="form-control"/>
+            <br />
+            <label>Message:</label>
+            <br />
+            <textarea rows="4" name="message" class="form-control"></textarea>
+            <br />
+            <input type="submit" value="Send Message" class="btn btn-primary"/>
+        </form>
+    </div>
+</div>
