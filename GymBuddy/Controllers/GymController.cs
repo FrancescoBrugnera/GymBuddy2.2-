@@ -1,5 +1,6 @@
 ﻿using GymBuddy.Data;
 using GymBuddy.Data.Entities;
+using GymBuddy.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,6 +10,7 @@ namespace GymBuddy.Controllers
     {
         private readonly GymBuddyContext _context;
         private readonly IGymBuddyRepository _repo;
+        private object _mailService;
 
         public GymController(GymBuddyContext context, IGymBuddyRepository repo)
         {
@@ -29,8 +31,17 @@ namespace GymBuddy.Controllers
         }
 
         [HttpPost("contact")]
-        public IActionResult Contact(object model)
+        public IActionResult Contact(ContactViewModel model)
         {
+            if (ModelState.IsValid)
+            {
+                //send e-mail
+                //_mailService.SendMail("francesco.brugnera@hotmail.com", model.Subject, $"From: {model.Email}, Message: {model.Message}");
+            }
+            else
+            {
+
+            }
             return View();
         }
 
