@@ -1,0 +1,20 @@
+﻿<h3>Shopping Cart</h3>
+<div>Count: {{ data.order.items.length }}</div>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <td>Lesson</td>
+            <td>Quantity</td>
+            <td>Price</td>
+            <td>Total</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let o of data.order.items">
+            <td>{{ o.lessonCategory }}</td>
+            <td>{{ o.quantity }}</td>
+            <td>{{ o.unitPrice | currency }}</td>
+            <td>{{ o.unitPrice * o.quantity }}</td>
+        </tr>
+    </tbody>
+</table>

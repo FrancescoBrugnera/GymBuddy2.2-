@@ -48,8 +48,9 @@ namespace GymBuddy.Controllers
         [Authorize]
         public IActionResult Shop()
         {
-            var results = _repo.GetAllLessons();
-            return View(results);
+            //var results = _repo.GetAllLessons();
+
+            return View();
         }
     }
 }

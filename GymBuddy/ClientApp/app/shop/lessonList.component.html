@@ -1,0 +1,13 @@
+﻿<div class="row">
+    <div class="lesson-info col-md-4 well well-sm" *ngFor="let l of lessons">
+        <div class="card bg-light" p-1 m-1>
+            <div class="lesson-name">{{ l.category }} - {{ l.classSize }}</div>
+                <div><strong>Price</strong>: {{ l.price | currency }}</div>
+                <div><strong>Instructor</strong>: {{l.instructor }}</div>
+                <div><strong>Title</strong>: {{ l.title }}</div>
+                <div><strong>Description</strong>: {{ l.classDescription }}</div>      
+            <button id="buyButton" class="btn btn-success" (click)="addLesson(l)">Buy</button>
+         </div>
+    </div>
+</div>
+
