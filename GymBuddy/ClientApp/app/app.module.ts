@@ -7,15 +7,31 @@ import { LessonList } from "./shop/lessonList.component";
 import { Cart } from "./shop/cart.component";
 import { DataService } from "./shared/dataService";
 
+import { RouterModule } from "@angular/router";
+
+import { Shop } from "./shop/shop.component";
+import { Checkout } from "./checkout/checkout.component";
+
+let routes = [
+    { path: "", component: Shop },
+    { path: "checkout", component: Checkout }
+]
+
 @NgModule({
   declarations: [
       AppComponent,
       LessonList,
-      Cart
+      Cart,
+      Shop,
+      Checkout
   ],
   imports: [
       BrowserModule,
-      HttpClientModule
+      HttpClientModule,
+      RouterModule.forRoot(routes, {
+          useHash: true,
+          enableTracing: false
+      })
   ],
     providers: [
         DataService

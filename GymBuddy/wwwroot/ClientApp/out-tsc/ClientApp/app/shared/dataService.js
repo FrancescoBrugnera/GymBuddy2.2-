@@ -18,11 +18,19 @@ var DataService = /** @class */ (function () {
         }));
     };
     DataService.prototype.addToOrder = function (newLesson) {
-        var item = new OrderItem();
-        item.id = newLesson.id;
-        item.unitPrice = newLesson.price;
-        item.quantity = 1;
-        this.order.items.push(item);
+        //var item: OrderItem = new OrderItem();
+        var item = this.order.items.find(function (i) { return i.id == newLesson.id; });
+        if (item) {
+            item.quantity++;
+        }
+        else {
+            item = new OrderItem();
+            item.id = newLesson.id;
+            item.unitPrice = newLesson.price;
+            item.quantity = 1;
+            //item.title;
+            this.order.items.push(item);
+        }
     };
     DataService = tslib_1.__decorate([
         Injectable(),

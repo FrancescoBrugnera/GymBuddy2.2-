@@ -26,11 +26,23 @@ export class DataService {
 
     public addToOrder(newLesson: Lesson) {
 
-        var item: OrderItem = new OrderItem();
-        item.id = newLesson.id;
-        item.unitPrice = newLesson.price;
-        item.quantity = 1;
+        //var item: OrderItem = new OrderItem();
 
-        this.order.items.push(item);
+        let item: OrderItem = this.order.items.find(i => i.id == newLesson.id)
+
+        if (item) {
+
+            item.quantity++;
+
+        } else {
+
+            item = new OrderItem();
+            item.id = newLesson.id;
+            item.unitPrice = newLesson.price;
+            item.quantity = 1;
+            //item.title;
+
+            this.order.items.push(item);
+        }
     }
 }

@@ -41,6 +41,7 @@
     <None Remove="ClientApp\app\shared\order.ts" />
     <None Remove="ClientApp\app\shop\cart.component.ts" />
     <None Remove="ClientApp\app\shop\lessonList.component.ts" />
+    <None Remove="ClientApp\app\shop\shop.component.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -49,6 +50,7 @@
     <TypeScriptCompile Include="ClientApp\app\shared\order.ts" />
     <TypeScriptCompile Include="ClientApp\app\shop\cart.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\shop\lessonList.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\shop\shop.component.ts" />
     <TypeScriptCompile Include="wwwroot\ts\storeuser.ts" />
   </ItemGroup>
 
