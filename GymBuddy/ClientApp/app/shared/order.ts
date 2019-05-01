@@ -6,7 +6,7 @@ export class Order {
     orderNumber: string;
     items: Array<OrderItem> = new Array<OrderItem>();
 
-    get subtotal(): number {
+    get subtotal(): number {// read only, no one allowed to set this!!!
         return _.sum(_.map(this.items, i => i.unitPrice * i.quantity));
     };
     //.map creates a collection of items first and it is then going to sum them

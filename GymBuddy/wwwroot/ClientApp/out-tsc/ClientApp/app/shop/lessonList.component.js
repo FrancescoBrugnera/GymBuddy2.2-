@@ -8,7 +8,7 @@ var LessonList = /** @class */ (function () {
     }
     LessonList.prototype.ngOnInit = function () {
         var _this = this;
-        this.data.loadLessons()
+        this.data.loadLessons() // boolean returned from the Data Service class
             .subscribe(function (success) {
             if (success) {
                 _this.lessons = _this.data.lessons;

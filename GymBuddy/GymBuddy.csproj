@@ -54,4 +54,8 @@
     <TypeScriptCompile Include="wwwroot\ts\storeuser.ts" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+
 </Project>

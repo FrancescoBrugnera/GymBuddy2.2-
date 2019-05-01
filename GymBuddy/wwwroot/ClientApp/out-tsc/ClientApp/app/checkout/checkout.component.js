@@ -7,7 +7,7 @@ var Checkout = /** @class */ (function () {
     }
     Checkout.prototype.onCheckout = function () {
         // TODO
-        alert("Doing checkout");
+        alert("Checking out, thank you!");
     };
     Checkout = tslib_1.__decorate([
         Component({

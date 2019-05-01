@@ -5,7 +5,7 @@ import { Lesson } from "../shared/lesson";
 @Component({
     selector: "lesson-list",
     templateUrl: "lessonList.component.html",
-    styleUrls: [ ]
+    styleUrls: []
 })
 export class LessonList implements OnInit{
 
@@ -15,7 +15,7 @@ export class LessonList implements OnInit{
     public lessons: Lesson[] = [];
 
     ngOnInit(): void {
-        this.data.loadLessons()
+        this.data.loadLessons()// boolean returned from the Data Service class
             .subscribe(success => {
                 if (success) {
                     this.lessons = this.data.lessons;

@@ -223,6 +223,7 @@ var DataService = /** @class */ (function () {
     }
     DataService.prototype.loadLessons = function () {
         var _this = this;
+        //what to expect to a caller
         return this.http.get("/api/lessons")
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (data) {
             _this.lessons = data;
@@ -303,7 +304,7 @@ var OrderItem = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n    <h3>Shopping Cart</h3>\r\n    <div>Items: {{ data.order.items.length }}</div>\r\n<div>SubTotal: {{ data.order.subtotal }}</div>\r\n    <table class=\"table table-condensed table-hover\">\r\n        <thead>\r\n            <tr>\r\n                <td>Lesson</td>\r\n                <td>Quantity</td>\r\n                <td>Price</td>\r\n                <td>Total</td>\r\n            </tr>\r\n        </thead>\r\n        <tbody>\r\n            <tr *ngFor=\"let o of data.order.items\">\r\n                <td>{{ o.lessonCategory }}</td>\r\n                <td>{{ o.quantity }}</td>\r\n                <td>{{ o.unitPrice | currency }}</td>\r\n                <td>{{ (o.unitPrice * o.quantity) }}</td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n<a routerLink=\"checkout\" class=\"btn btn-success\" *ngIf=\"data.order.items.length > 0\"></a>\r\n"
+module.exports = "\r\n    <h3>Shopping Cart</h3>\r\n    <div>Items: {{ data.order.items.length }}</div>\r\n    <div>SubTotal: {{ data.order.subtotal }}</div>\r\n    <table class=\"table table-condensed table-hover\">\r\n        <thead>\r\n            <tr>\r\n                <td>Lesson</td>\r\n                <td>Quantity</td>\r\n                <td>Price</td>\r\n                <td>Total</td>\r\n            </tr>\r\n        </thead>\r\n        <tbody>\r\n            <tr *ngFor=\"let o of data.order.items\">\r\n                <td>{{ o.lessonCategory }}</td>\r\n                <td>{{ o.quantity }}</td>\r\n                <td>{{ o.unitPrice | currency }}</td>\r\n                <td>{{ (o.unitPrice * o.quantity) }}</td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n    <a routerLink=\"checkout\" class=\"btn btn-success\" *ngIf=\"data.order.items.length > 0\"></a>\r\n"
 
 /***/ }),
 
@@ -348,7 +349,7 @@ var Cart = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n    <div class=\"lesson-info col-md-4 well well-sm\" *ngFor=\"let l of lessons\">\r\n        <div class=\"card bg-light\" p-1 m-1>\r\n            <div class=\"lesson-name\">{{ l.category }} - {{ l.classSize }}</div>\r\n                <div><strong>Price</strong>: {{ l.price | currency }}</div>\r\n                <div><strong>Instructor</strong>: {{l.instructor }}</div>\r\n                <div><strong>Title</strong>: {{ l.title }}</div>\r\n                <div><strong>Description</strong>: {{ l.classDescription }}</div>      \r\n            <button id=\"buyButton\" class=\"btn btn-success\" (click)=\"addLesson(l)\">Buy</button>\r\n         </div>\r\n    </div>\r\n</div>\r\n\r\n"
+module.exports = "<div class=\"row\">\r\n\r\n    <div class=\"lesson-info col-md-4 well well-sm\" *ngFor=\"let l of lessons\">\r\n        <div class=\"card bg-light\" p-1 m-1>\r\n            <div class=\"lesson-name\">{{ l.category }} - {{ l.classSize }}</div>\r\n                <div><strong>Price</strong>: {{ l.price | currency }}</div>\r\n                <div><strong>Instructor</strong>: {{l.instructor }}</div>\r\n                <div><strong>Title</strong>: {{ l.title }}</div>\r\n                <div><strong>Description</strong>: {{ l.classDescription }}</div>      \r\n            <button id=\"buyButton\" class=\"btn btn-success\" (click)=\"addLesson(l)\">Buy</button>\r\n         </div>\r\n    </div>\r\n\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -375,7 +376,7 @@ var LessonList = /** @class */ (function () {
     }
     LessonList.prototype.ngOnInit = function () {
         var _this = this;
-        this.data.loadLessons()
+        this.data.loadLessons() // boolean returned from the Data Service class
             .subscribe(function (success) {
             if (success) {
                 _this.lessons = _this.data.lessons;

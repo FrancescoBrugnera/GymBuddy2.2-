@@ -1,4 +1,34 @@
-﻿/*body{
+﻿* {box-sizing:border-box}
+
+.slideshow-container{
+    max-width: 1000px;
+    position: relative;
+    margin:auto;
+}
+
+.My_slides{
+    display:none;
+}
+
+.text{
+    color: firebrick;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+.ntext{
+    color: firebrick;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/*body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 

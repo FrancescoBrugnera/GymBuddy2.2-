@@ -11,7 +11,7 @@ import { Shop } from "./shop/shop.component";
 import { Checkout } from "./checkout/checkout.component";
 var routes = [
     { path: "", component: Shop },
-    { path: "/checkout", component: Checkout }
+    { path: "checkout", component: Checkout }
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {

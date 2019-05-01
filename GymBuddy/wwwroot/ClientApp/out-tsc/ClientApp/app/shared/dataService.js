@@ -11,6 +11,7 @@ var DataService = /** @class */ (function () {
     }
     DataService.prototype.loadLessons = function () {
         var _this = this;
+        //what to expect to a caller
         return this.http.get("/api/lessons")
             .pipe(map(function (data) {
             _this.lessons = data;
