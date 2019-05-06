@@ -119,37 +119,5 @@ namespace GymBuddy.Controllers
 
             return BadRequest();
         }
-
-        
-        [HttpPost]
-        public async Task<IActionResult> Register ([FromBody] RegistrationViewModel registration){
-
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            UserStore newUser = new UserStore
-            {
-                UserName = registration.Username
-            };
-
-            IdentityResult result = await _userManager.CreateAsync(newUser, registration.Password);
-            if (!result.Succeeded)
-            {
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError(error.Code, error.Description);
-                }
-                return BadRequest(ModelState);
-            }
-
-            return Ok();
-        }
-
-        public IActionResult Register()
-        {
-            return View();
-        }
     }
 }

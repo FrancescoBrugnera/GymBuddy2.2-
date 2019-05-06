@@ -2,7 +2,10 @@
 using GymBuddy.Data.Entities;
 using GymBuddy.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 
 namespace GymBuddy.Controllers
 {
@@ -10,12 +13,14 @@ namespace GymBuddy.Controllers
     {
         private readonly GymBuddyContext _context;
         private readonly IGymBuddyRepository _repo;
+        private readonly UserManager<UserStore> _userManager;
         //private object _mailService;
 
-        public GymController(GymBuddyContext context, IGymBuddyRepository repo)
+        public GymController(GymBuddyContext context, IGymBuddyRepository repo, UserManager<UserStore> userManager)
         {
             _context = context;
             _repo = repo;
+            _userManager = userManager;
         }
 
         public IActionResult Index()
@@ -50,6 +55,27 @@ namespace GymBuddy.Controllers
         {
             //var results = _repo.GetAllLessons();
 
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(RegistrationViewModel registration)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByEmailAsync(registration.Username);
+                if (user == null)
+                {
+                    user = new UserStore
+                    {
+                        Id = Guid.NewGuid().ToString(),
+                        UserName = registration.Username
+                    };
+
+                    var result = await _userManager.CreateAsync(user, registration.Password);
+                }
+                return View();
+            }
             return View();
         }
 
