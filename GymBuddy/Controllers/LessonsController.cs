@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 namespace GymBuddy.Controllers
 {
     [Route("api/[Controller]")]
-    [ApiController]
-    [Produces("application/json")]
+    [ApiController]// tells swagger what controller is an API controller
+    [Produces("application/json")]// always returns JSON
     public class LessonsController : Controller
     {
         private readonly IGymBuddyRepository _repository;
@@ -27,7 +27,7 @@ namespace GymBuddy.Controllers
         {
             try
             {
-                return Ok(_repository.GetAllLessons());
+                return Ok(_repository.GetAllLessons());// the use ok Ok object supports the swagger documentation
             }
             catch
             {

@@ -10,7 +10,7 @@ namespace GymBuddy.Controllers
     {
         private readonly GymBuddyContext _context;
         private readonly IGymBuddyRepository _repo;
-        private object _mailService;
+        //private object _mailService;
 
         public GymController(GymBuddyContext context, IGymBuddyRepository repo)
         {
@@ -50,6 +50,11 @@ namespace GymBuddy.Controllers
         {
             //var results = _repo.GetAllLessons();
 
+            return View();
+        }
+
+        public IActionResult Register()
+        {
             return View();
         }
     }

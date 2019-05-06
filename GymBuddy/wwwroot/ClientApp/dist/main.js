@@ -342,6 +342,17 @@ var Cart = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./app/shop/lessonList.component.css":
+/*!*******************************************!*\
+  !*** ./app/shop/lessonList.component.css ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".lesson-name .lesson-name{\r\n   font-size: large;\r\n   font-weight: bold;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkNsaWVudEFwcC9hcHAvc2hvcC9sZXNzb25MaXN0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7R0FDRyxnQkFBZ0I7R0FDaEIsaUJBQWlCO0FBQ3BCIiwiZmlsZSI6IkNsaWVudEFwcC9hcHAvc2hvcC9sZXNzb25MaXN0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubGVzc29uLW5hbWUgLmxlc3Nvbi1uYW1le1xyXG4gICBmb250LXNpemU6IGxhcmdlO1xyXG4gICBmb250LXdlaWdodDogYm9sZDtcclxufSJdfQ== */"
+
+/***/ }),
+
 /***/ "./app/shop/lessonList.component.html":
 /*!********************************************!*\
   !*** ./app/shop/lessonList.component.html ***!
@@ -389,7 +400,8 @@ var LessonList = /** @class */ (function () {
     LessonList = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: "lesson-list",
-            template: __webpack_require__(/*! ./lessonList.component.html */ "./app/shop/lessonList.component.html")
+            template: __webpack_require__(/*! ./lessonList.component.html */ "./app/shop/lessonList.component.html"),
+            styles: [__webpack_require__(/*! ./lessonList.component.css */ "./app/shop/lessonList.component.css")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_shared_dataService__WEBPACK_IMPORTED_MODULE_2__["DataService"]])
     ], LessonList);

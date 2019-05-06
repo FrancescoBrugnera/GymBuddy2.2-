@@ -5,7 +5,7 @@ import { Lesson } from "../shared/lesson";
 @Component({
     selector: "lesson-list",
     templateUrl: "lessonList.component.html",
-    styleUrls: []
+    styleUrls: ["lessonList.component.css"]
 })
 export class LessonList implements OnInit{
 

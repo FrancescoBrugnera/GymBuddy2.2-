@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using GymBuddy.Data;
 using GymBuddy.Data.Entities;
+using GymBuddy.Services;
 using GymBuddy.ViewModels;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -19,11 +20,13 @@ namespace GymBuddy.Controllers
     {
         private readonly IGymBuddyRepository _repository;
         private readonly IMapper _mapper;
+        private readonly OrdersService _orderService;
 
-        public OrdersController(IGymBuddyRepository repository,IMapper mapper)
+        public OrdersController(OrdersService orderservice, IGymBuddyRepository repository,IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
+            _orderService = orderservice;
         }
 
         [HttpGet]
@@ -65,14 +68,7 @@ namespace GymBuddy.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var newOrder = _mapper.Map<OrderViewModel, Order>(model);
-
-                    if(newOrder.OrderDate == DateTime.MinValue)
-                    {
-                        newOrder.OrderDate = DateTime.Now;
-                    }
-
-                    _repository.AddOrder(newOrder);
+                    Order newOrder = _orderService.NewOrder(model);
 
                     if (_repository.SaveAll())
                     {
@@ -91,5 +87,7 @@ namespace GymBuddy.Controllers
             }
             return BadRequest("could not create order");
         }
+
+
     }
 }

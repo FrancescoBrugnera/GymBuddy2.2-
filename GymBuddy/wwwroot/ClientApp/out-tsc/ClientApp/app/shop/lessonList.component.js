@@ -22,7 +22,7 @@ var LessonList = /** @class */ (function () {
         Component({
             selector: "lesson-list",
             templateUrl: "lessonList.component.html",
-            styleUrls: []
+            styleUrls: ["lessonList.component.css"]
         }),
         tslib_1.__metadata("design:paramtypes", [DataService])
     ], LessonList);

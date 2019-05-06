@@ -1,5 +1,6 @@
 ﻿using GymBuddy.Data.Entities;
 using GymBuddy.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -13,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace GymBuddy.Controllers
 {
+    
     public class AccountController : Controller
     {
         private readonly UserManager<UserStore> _userManager;
@@ -118,5 +120,36 @@ namespace GymBuddy.Controllers
             return BadRequest();
         }
 
+        
+        [HttpPost]
+        public async Task<IActionResult> Register ([FromBody] RegistrationViewModel registration){
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            UserStore newUser = new UserStore
+            {
+                UserName = registration.Username
+            };
+
+            IdentityResult result = await _userManager.CreateAsync(newUser, registration.Password);
+            if (!result.Succeeded)
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(error.Code, error.Description);
+                }
+                return BadRequest(ModelState);
+            }
+
+            return Ok();
+        }
+
+        public IActionResult Register()
+        {
+            return View();
+        }
     }
 }
