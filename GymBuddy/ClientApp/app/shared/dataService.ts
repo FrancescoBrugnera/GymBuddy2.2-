@@ -1,4 +1,10 @@
-﻿import { HttpClient } from "@angular/common/http";
+﻿//the code on this page was inspired and guided from
+//https://app.pluralsight.com/library/courses/aspnetcore-mvc-efcore-bootstrap-angular-web/table-of-contents
+//https://app.pluralsight.com/library/courses/aspdotnet-core-dependency-injection/table-of-contents
+//https://app.pluralsight.com/library/courses/architecting-aspnet-core-mvc-unit-testability/table-of-contents
+//https://app.pluralsight.com/library/courses/aspnet-core-fundamentals/table-of-contents
+
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { map } from "rxjs/operators";
 import { Observable } from "rxjs";// reactive extension to javascript

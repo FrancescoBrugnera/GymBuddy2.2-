@@ -1,13 +1,17 @@
-﻿@model LoginViewModel
-@{ 
+﻿@*the code on this page was inspired and guided from
+https://app.pluralsight.com/library/courses/aspnetcore-mvc-efcore-bootstrap-angular-web/table-of-contents
+https://app.pluralsight.com/library/courses/aspdotnet-core-dependency-injection/table-of-contents
+https://app.pluralsight.com/library/courses/architecting-aspnet-core-mvc-unit-testability/table-of-contents
+https://app.pluralsight.com/library/courses/aspnet-core-fundamentals/table-of-contents *@
+
+@model LoginViewModel
+@{
     ViewBag.Title = "login";
 }
-
-@*@section Scripts{ 
-    <script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
-}*@
-
-<div class ="row">
+@*@section Scripts{
+        <script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+    }*@
+<div class="row">
     <div class="col-md-4 offset-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly"></div>
@@ -24,7 +28,7 @@
             <div class="form-group">
                 <div class="form-check">
                     <input asp-for="RememberMe" type="checkbox" class="form-check-input" />
-                    <label asp-for="RememberMe" class="form-check-label" >Remember Me</label>
+                    <label asp-for="RememberMe" class="form-check-label">Remember Me</label>
                 </div>
                 <span asp-validation-for="RememberMe" class="text-warning"></span>
             </div>
