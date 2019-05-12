@@ -68,12 +68,14 @@ namespace GymBuddy.Controllers
                 {
                     user = new UserStore
                     {
-                        Id = Guid.NewGuid().ToString(),
-                        UserName = registration.Username
+                        //Id = Guid.NewGuid().ToString(),
+                        UserName = registration.Username,
+                        Email = registration.Username
                     };
 
-                    var result = await _userManager.CreateAsync(user, registration.Password);
+                    IdentityResult result = await _userManager.CreateAsync(user, registration.Password);
                 }
+                
                 return View();
             }
             return View();

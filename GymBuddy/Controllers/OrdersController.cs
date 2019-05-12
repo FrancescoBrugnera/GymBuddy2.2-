@@ -72,7 +72,6 @@ namespace GymBuddy.Controllers
 
                     if (_repository.SaveAll())
                     {
-
                         return Created($"/api/orders/{newOrder.Id}", _mapper.Map<Order, OrderViewModel>(newOrder));
                     }
                     else

@@ -4,6 +4,7 @@ namespace GymBuddy.ViewModels
 {
     public class OrderItemViewModel
     {
+        //[Required]
         public int Id { get; set; }
         [Required]
         public int Quantity { get; set; }

@@ -1,32 +1,54 @@
-﻿* {box-sizing:border-box}
+﻿/*the code on this page was inspired and guided from https://www.youtube.com/watch?v=FZrHoAUkHpE */ 
 
-.slideshow-container{
-    max-width: 1000px;
-    position: relative;
-    margin:auto;
-}
+* {box-sizing:border-box}
 
-.My_slides{
-    display:none;
-}
-
-.text{
-    color: firebrick;
-    font-size: 15px;
-    padding: 8px 12px;
-    position: absolute;
-    bottom: 8px;
-    width: 100%;
+.slide-container{
+    width: 300px;
+    height: 200px;  
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
     text-align: center;
 }
 
-.ntext{
-    color: firebrick;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
+.image-container{
+    width: 900px;
+    height: 200px;
+    position: relative;
+    transition:left 2s;
 }
+
+.slider-image{
+    float:left;
+    margin: 0px;
+    padding: 0px;
+}
+
+.button-container{
+    top: -20px;
+    position: relative;
+}
+
+.slider-button{
+    display: inline-block;
+    height:10px;
+    width: 10px;
+    border-radius: 5px;
+    background-color: aliceblue;
+}
+
+#slider-image-1:target ~ .image-container {
+    left: 0px;
+}
+#slider-image-2:target ~ .image-container {
+    left: -300px;
+}
+#slider-image-3:target ~ .image-container {
+    left: -600px;
+}
+
+
+
 
 /*body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif

@@ -46,8 +46,6 @@ namespace GymBuddy.Data
                 }
             }
 
-
-
             if (!_ctx.Lessons.Any())
             {
                 //sample data creation process
